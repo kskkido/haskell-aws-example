@@ -1,0 +1,13 @@
+*[data-component~='lightbox_container'] {
+  & *[data-component~='lightbox_slide'] {
+    visibility: hidden;
+    &.active {
+      visibility: visible;
+    }
+  }
+  & *[data-component~='lightbox_thumbnail'] {
+    &.active {
+      border: 2px solid black;
+    }
+  }
+}

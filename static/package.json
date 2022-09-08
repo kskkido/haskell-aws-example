@@ -1,0 +1,33 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "concurrently \"npm:build:scripts\" \"npm:build:styles\"",
+    "build:scripts": "make build-scripts",
+    "build:styles": "make build-styles",
+    "clean": "concurrently \"npm:clean:scripts\" \"npm:clean:styles\"",
+    "clean:scripts": "rm -rf ./public/scripts",
+    "clean:styles": "rm -rf ./public/styles",
+    "watch": "concurrently \"npm:watch:scripts\" \"npm:watch:styles\"",
+    "watch:scripts": "make watch-scripts &",
+    "watch:styles": "make watch-styles &"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.7",
+    "concurrently": "7.3.0",
+    "postcss": "8.4.14",
+    "postcss-cli": "9.1.0",
+    "postcss-custom-media": "8.0.0",
+    "postcss-import": "14.1.0",
+    "postcss-nested": "5.0.6",
+    "postcss-nesting": "10.1.7"
+  },
+  "dependencies": {
+    "esbuild": "0.14.50",
+    "tailwindcss": "3.0.24"
+  }
+}

@@ -1,0 +1,15 @@
+body {
+  font-family: 'Bookerly', sans-serif;
+  letter-spacing: 0.05em;
+  background: #fbf0d9;
+  color: black;
+  mix-blend-mode: multiply;
+
+  & a {
+    cursor: pointer;
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
