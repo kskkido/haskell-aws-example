@@ -1,0 +1,65 @@
+/*https://www.awwwards.com/inspiration/bigilla-a-display-serif-typeface-with-ligatures-and-alternates*/
+@font-face {
+  font-family: GeneralSans-Bold;
+  src: url(../../assets/fonts/GeneralSans-Bold.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-BoldItalic;
+  src: url(../../assets/fonts/GeneralSans-BoldItalic.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Extalight;
+  src: url(../../assets/fonts/GeneralSans-Extalight.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-ExtralightItalic;
+  src: url(../../assets/fonts/GeneralSans-ExtralightItalic.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Italic;
+  src: url(../../assets/fonts/GeneralSans-Italic.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Light;
+  src: url(../../assets/fonts/GeneralSans-Light.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-LightItalic;
+  src: url(../../assets/fonts/GeneralSans-LightItalic.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Medium;
+  src: url(../../assets/fonts/GeneralSans-Medium.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-MediumItalic;
+  src: url(../../assets/fonts/GeneralSans-MediumItalic.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Regular;
+  src: url(../../assets/fonts/GeneralSans-Regular.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-Semibold;
+  src: url(../../assets/fonts/GeneralSans-Semibold.otf);
+}
+
+@font-face {
+  font-family: GeneralSans-SemiboldItalic;
+  src: url(../../assets/fonts/GeneralSans-SemiboldItalic.otf);
+}
+
+@font-face {
+  font-family: Bookerly;
+  src: url(../../assets/fonts/Bookerly.ttf);
+}

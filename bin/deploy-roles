@@ -1,0 +1,7 @@
+function main () {
+  export $(cat env/deploy-roles/.env.production | xargs)
+	stack exec eriko-ikeda-portfolio-fp-cli-exe deploy-role-stack
+}
+
+main $*
+
