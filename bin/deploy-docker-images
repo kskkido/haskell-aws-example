@@ -1,0 +1,9 @@
+function main () {
+  docker build --no-cache ./static -t kskkido/eriko-ikeda-portfolio-static
+  docker build --no-cache . -t kskkido/eriko-ikeda-portfolio
+  docker push kskkido/eriko-ikeda-portfolio-static:latest
+  docker push kskkido/eriko-ikeda-portfolio:latest
+}
+
+main $*
+

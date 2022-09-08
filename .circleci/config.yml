@@ -1,0 +1,249 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@3.1.1
+  slack: circleci/slack@4.2.0
+
+references:
+  default_branch: &default_branch main
+
+executors:
+  app:
+    docker:
+      - image: kskkido/eriko-ikeda-portfolio:latest
+    working_directory: ~/eriko-ikeda-portfolio
+  static:
+    docker:
+      - image: kskkido/eriko-ikeda-portfolio-static:latest
+    working_directory: ~/eriko-ikeda-portfolio
+  base:
+    docker:
+      - image: cimg/base:2020.01
+    working_directory: ~/eriko-ikeda-portfolio
+
+commands:
+  app-deploy:
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'production']
+      region:
+        type: string
+    steps:
+      - aws-cli/install
+      - run: |
+          echo 'Setting AWS profile'
+          mkdir -p ~/.aws
+          echo '[default]' >> ~/.aws/credentials
+          echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+          echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+          echo "region = ap-northeast-1" >> ~/.aws/credentials
+          cat .circleci/.aws/config >> ~/.aws/config
+      - run: |
+          LAMBDA_VERSION=$(git rev-parse --short HEAD)
+          .circleci/deploy.sh << parameters.stage >> << parameters.region >> $LAMBDA_VERSION
+  app-build:
+    steps:
+      - run: make build-lambda
+  app-save-dependencies:
+    steps:
+      - save_cache:
+          key: app-v2-dependencies-{{ checksum "stack.yaml" }}
+          paths:
+            - ~/.stack/
+            - ./.stack-work/
+  app-restore-dependencies:
+    steps:
+      - restore_cache:
+          keys:
+            - app-v2-dependencies-{{ checksum "stack.yaml" }}
+            - app-v2-dependencies
+  app-install-dependencies:
+    steps:
+      - app-restore-dependencies
+      - run: stack install record-dot-preprocessor
+      - run: stack build --dependencies-only --verbose
+  static-build:
+    steps:
+      - run: make build-static
+  static-save-dependencies:
+    steps:
+      - save_cache:
+          key: static-v2-dependencies-{{ checksum "./static/yarn.lock" }}
+          paths:
+            - ./static/node_modules/
+  static-restore-dependencies:
+    steps:
+      - restore_cache:
+          keys:
+            - static-v2-dependencies-{{ checksum "./static/yarn.lock" }}
+            - static-v2-dependencies
+  static-install-dependencies:
+    steps:
+      - static-restore-dependencies
+      - run: yarn --cwd ./static
+  publish:
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'production']
+    steps:
+      # ssh key must have write permission
+      - add_ssh_keys
+      - run: .circleci/publish.sh << parameters.stage >>
+  app-lint:
+    steps:
+      - run: echo "TODO"
+  app-unit_test:
+    steps:
+      - run: echo "TODO"
+
+jobs:
+  start:
+    executor: base
+    steps:
+      - run: echo 'starting workflow'
+  done:
+    executor: base
+    steps:
+      - run: echo 'finished workflow'
+  app-deploy:
+    executor: app
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'production']
+      region:
+        type: string
+    steps:
+      - checkout
+      - app-install-dependencies
+      - attach_workspace:
+          at: .
+      - app-deploy:
+          stage: << parameters.stage >>
+          region: << parameters.region >>
+  app-build:
+    executor: app
+    steps:
+      - checkout
+      - setup_remote_docker
+      - attach_workspace:
+          at: .
+      - app-install-dependencies
+      - app-build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - output
+  app-dependencies:
+    executor: app
+    steps:
+      - checkout
+      - app-install-dependencies
+      - app-save-dependencies
+  app-lint:
+    executor: app
+    steps:
+      - checkout
+      - app-install-dependencies
+      - app-lint
+  app-unit_test:
+    executor: app
+    steps:
+      - checkout
+      - app-install-dependencies
+      - app-unit_test
+  static-build:
+    executor: static
+    steps:
+      - checkout
+      - static-install-dependencies
+      - static-build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - static/public
+  static-dependencies:
+    executor: static
+    steps:
+      - checkout
+      - static-install-dependencies
+      - static-save-dependencies
+  publish:
+    executor: base
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'production']
+    steps:
+      - checkout
+      - publish:
+          stage: << parameters.stage >>
+workflows:
+  commit:
+    jobs:
+      - start:
+          filters:
+            branches:
+              ignore:
+                - *default_branch
+      - app-dependencies:
+          requires:
+            - start
+      - app-lint:
+          requires:
+            - start
+      - app-unit_test:
+          requires:
+            - start
+      - app-build:
+          requires:
+            - start
+      - done:
+          requires:
+            - app-dependencies
+            - app-lint
+            - app-unit_test
+            - app-build
+  deploy_production:
+    jobs:
+      - start:
+          filters:
+            branches:
+              only:
+                - *default_branch
+      - static-dependencies:
+          requires:
+            - start
+      - static-build:
+          requires:
+            - start
+      - app-lint:
+          requires:
+            - start
+      - app-unit_test:
+          requires:
+            - start
+      - app-dependencies:
+          requires:
+            - start
+      - app-build:
+          requires:
+            - static-build
+      - app-deploy:
+          stage: production
+          region: ap-northeast-1
+          context:
+            - aws-credentials
+            - eriko-ikeda-portfolio-contentful-production
+          requires:
+            - static-build
+            - app-dependencies
+            - app-lint
+            - app-unit_test
+            - app-build
+      - publish:
+          stage: production
+          requires:
+            - app-deploy

@@ -1,0 +1,7 @@
+function main () {
+  export $(cat env/generator/.env.development | xargs)
+  make build-static-site
+}
+
+main $*
+

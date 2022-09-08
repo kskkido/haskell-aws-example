@@ -1,0 +1,137 @@
+name:                eriko-ikeda-portfolio-fp
+version:             0.1.0.0
+github:              "githubuser/eriko-ikeda-portfolio-fp"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2022 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/eriko-ikeda-portfolio-fp#readme>
+
+default-extensions:
+  - BlockArguments
+  - DeriveAnyClass
+  - DeriveGeneric
+  - LambdaCase
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - StrictData
+  - ExtendedDefaultRules
+  - ScopedTypeVariables
+  - QuasiQuotes
+  - TypeApplications
+  - TupleSections
+
+dependencies:
+  - aeson
+  - aeson-pretty
+  - aeson-qq
+  - async
+  - amazonka
+  - amazonka-core
+  - amazonka-s3
+  - amazonka-sts
+  - amazonka-cloudformation
+  - amazonka-cloudfront
+  - amazonka-ssm
+  - base
+  - butcher
+  - bytestring
+  - case-insensitive
+  - directory
+  - exceptions
+  - extra
+  - filepath
+  - hashable
+  - hedis
+  - hslogger
+  - http-client
+  - http-conduit
+  - http-types
+  - ini
+  - lens
+  - lucid
+  - mime-types
+  - mtl
+  - network
+  - optparse-applicative
+  - parsec
+  - postgresql-simple
+  - process
+  - record-hasfield
+  - regex-tdfa
+  - retry
+  - rio
+  - scotty
+  - serialise
+  - split
+  - stm
+  - stratosphere
+  - text
+  - time
+  - transformers
+  - typed-process
+  - unordered-containers
+  - utf8-string
+  - wai
+  - wai-cors
+  - wai-middleware-static
+  - yaml
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+- -F -pgmF=record-dot-preprocessor
+
+
+library:
+  source-dirs: src
+
+executables:
+  eriko-ikeda-portfolio-fp-cli-exe:
+    main:                Main.hs
+    source-dirs:         cli
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - eriko-ikeda-portfolio-fp
+  eriko-ikeda-portfolio-fp-lambda-exe:
+    main:                Main.hs
+    source-dirs:         lambda
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - eriko-ikeda-portfolio-fp
+
+tests:
+  eriko-ikeda-portfolio-fp-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - eriko-ikeda-portfolio-fp

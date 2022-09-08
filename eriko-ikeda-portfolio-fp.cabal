@@ -1,0 +1,539 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           eriko-ikeda-portfolio-fp
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/eriko-ikeda-portfolio-fp#readme>
+homepage:       https://github.com/githubuser/eriko-ikeda-portfolio-fp#readme
+bug-reports:    https://github.com/githubuser/eriko-ikeda-portfolio-fp/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2022 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/eriko-ikeda-portfolio-fp
+
+library
+  exposed-modules:
+      Portfolio.Applications.ApplicationStack.Data.App.Main
+      Portfolio.Applications.ApplicationStack.Data.AppConfig.Main
+      Portfolio.Applications.ApplicationStack.Data.CreateBucket.Main
+      Portfolio.Applications.ApplicationStack.Data.CreateStack.Main
+      Portfolio.Applications.ApplicationStack.Data.LambdaSource.Main
+      Portfolio.Applications.ApplicationStack.Data.PutObject.Main
+      Portfolio.Applications.ApplicationStack.Data.Stack.Main
+      Portfolio.Applications.ApplicationStack.Data.Template.Main
+      Portfolio.Applications.ApplicationStack.Main
+      Portfolio.Applications.Cli.Data.CliInput.Main
+      Portfolio.Applications.Cli.Main
+      Portfolio.Applications.Client.Data.AppConfig.Main
+      Portfolio.Applications.Client.Data.AppContext.Main
+      Portfolio.Applications.Client.Data.Component.Main
+      Portfolio.Applications.Client.Data.Drawing.Main
+      Portfolio.Applications.Client.Data.FilePathConfig.Main
+      Portfolio.Applications.Client.Data.Image.Main
+      Portfolio.Applications.Client.Data.LightboxSlide.Main
+      Portfolio.Applications.Client.Data.Page.Main
+      Portfolio.Applications.Client.Data.PageBuild.Main
+      Portfolio.Applications.Client.Data.PageContent.Main
+      Portfolio.Applications.Client.Data.PageContext.Main
+      Portfolio.Applications.Client.Data.PageKey.Main
+      Portfolio.Applications.Client.Data.PageMetadata.Main
+      Portfolio.Applications.Client.Data.Photograph.Main
+      Portfolio.Applications.Client.Data.SiteMetadata.Main
+      Portfolio.Applications.Client.Main
+      Portfolio.Applications.Client.Templates.Components.AppBody.Main
+      Portfolio.Applications.Client.Templates.Components.AppContent.Main
+      Portfolio.Applications.Client.Templates.Components.AppHead.Main
+      Portfolio.Applications.Client.Templates.Components.AppHeader.Main
+      Portfolio.Applications.Client.Templates.Components.AppLayout.Main
+      Portfolio.Applications.Client.Templates.Components.AppScripts.Main
+      Portfolio.Applications.Client.Templates.Components.AppSidebar.Main
+      Portfolio.Applications.Client.Templates.Components.AppStyles.Main
+      Portfolio.Applications.Client.Templates.Components.Drawing.Main
+      Portfolio.Applications.Client.Templates.Components.DrawingDetail.Main
+      Portfolio.Applications.Client.Templates.Components.DrawingsByMonth.Main
+      Portfolio.Applications.Client.Templates.Components.Lightbox.Main
+      Portfolio.Applications.Client.Templates.Components.LightboxContent.Main
+      Portfolio.Applications.Client.Templates.Components.LightboxHeader.Main
+      Portfolio.Applications.Client.Templates.Components.LightboxLayout.Main
+      Portfolio.Applications.Client.Templates.Components.LightboxSlide.Main
+      Portfolio.Applications.Client.Templates.Components.LightboxThumbnail.Main
+      Portfolio.Applications.Client.Templates.Components.PageHeading.Main
+      Portfolio.Applications.Client.Templates.Components.Photograph.Main
+      Portfolio.Applications.Client.Templates.Components.PhotographDetail.Main
+      Portfolio.Applications.Client.Templates.Components.PhotographsByMonth.Main
+      Portfolio.Applications.Client.Templates.Components.RichText.Main
+      Portfolio.Applications.Client.Templates.Components.Translation.Main
+      Portfolio.Applications.Client.Templates.Pages.About.Main
+      Portfolio.Applications.Client.Templates.Pages.Drawings.Main
+      Portfolio.Applications.Client.Templates.Pages.Home.Main
+      Portfolio.Applications.Client.Templates.Pages.Photographs.Main
+      Portfolio.Applications.Client.Templates.Pages.Translations.Main
+      Portfolio.Applications.DeploymentStack.Data.App.Main
+      Portfolio.Applications.DeploymentStack.Data.AppConfig.Main
+      Portfolio.Applications.DeploymentStack.Data.Stack.Main
+      Portfolio.Applications.DeploymentStack.Data.Template.Main
+      Portfolio.Applications.DeploymentStack.Main
+      Portfolio.Applications.DevServer.Data.AppConfig.Main
+      Portfolio.Applications.DevServer.Data.AppConfigDto.Main
+      Portfolio.Applications.DevServer.Data.AppContext.Main
+      Portfolio.Applications.DevServer.Main
+      Portfolio.Applications.LambdaPackager.Data.AppInput.Main
+      Portfolio.Applications.LambdaPackager.Main
+      Portfolio.Applications.Server.Data.App.Main
+      Portfolio.Applications.Server.Data.AppConfig.Main
+      Portfolio.Applications.Server.Data.AppConfigDto.Main
+      Portfolio.Applications.Server.Data.AppContext.Main
+      Portfolio.Applications.Server.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.App.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.AppConfig.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.AppConfigDto.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.AppContext.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.Build.Main
+      Portfolio.Applications.StaticSiteGenerator.Data.File.Main
+      Portfolio.Applications.StaticSiteGenerator.Main
+      Portfolio.Data.About.Main
+      Portfolio.Data.AboutFields.Main
+      Portfolio.Data.AppContent.Main
+      Portfolio.Data.Drawing.Main
+      Portfolio.Data.DrawingFields.Main
+      Portfolio.Data.Path.Main
+      Portfolio.Data.PathConfig.Main
+      Portfolio.Data.PathInfo.Main
+      Portfolio.Data.PathToken.Main
+      Portfolio.Data.PathTokens.Main
+      Portfolio.Data.Photograph.Main
+      Portfolio.Data.PhotographFields.Main
+      Portfolio.Data.Sitemap.Main
+      Portfolio.Data.Translation.Main
+      Portfolio.Data.TranslationFields.Main
+      Portfolio.Data.TranslationLinked.Main
+      Portfolio.Data.TranslationStatic.Main
+      Portfolio.Data.TranslationVariant.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.App.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.AppConfig.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.AppContext.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.AppRemoteConfig.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.Distribution.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Data.PutObject.Main
+      Portfolio.Infrastructure.Handlers.GenerateStaticSite.Main
+      Portfolio.Lib.Aeson.Main
+      Portfolio.Lib.Amazonka.Auth.Data.CredentialConfig.Main
+      Portfolio.Lib.Amazonka.Auth.Data.ProfileConfig.Main
+      Portfolio.Lib.Amazonka.Auth.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.App.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandler.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerApiGateway.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerApiGatewayRequest.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerApiGatewayResponse.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerContext.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerEdgeEvent.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerEdgeInput.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerEvent.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerInput.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerMap.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerOutput.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaHandlerStandaloneInput.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaRuntimeApiSource.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaRuntimeContext.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaRuntimeEnvironment.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaRuntimeInput.Main
+      Portfolio.Lib.AwsLambdaRuntime.Data.LambdaRuntimeInvocationContext.Main
+      Portfolio.Lib.AwsLambdaRuntime.Main
+      Portfolio.Lib.AwsLambdaRuntime.Repositories.LambdaRuntime.Data.Repository.Main
+      Portfolio.Lib.AwsLambdaRuntime.Repositories.LambdaRuntimeInvocation.Data.Repository.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Data.LambdaRuntimeInvocation.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Data.PostLambdaRuntimeInvocationErrorParameters.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Data.PostLambdaRuntimeInvocationResponseParameters.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Data.Query.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Data.QueryContext.Main
+      Portfolio.Lib.AwsLambdaRuntimeApi.Queries.Main
+      Portfolio.Lib.ByteString.Main
+      Portfolio.Lib.Contentful.Data.Asset.Main
+      Portfolio.Lib.Contentful.Data.AssetImage.Main
+      Portfolio.Lib.Contentful.Data.AssetImageContentType.Main
+      Portfolio.Lib.Contentful.Data.AssetImageDetails.Main
+      Portfolio.Lib.Contentful.Data.AssetImageDimension.Main
+      Portfolio.Lib.Contentful.Data.AssetImageFields.Main
+      Portfolio.Lib.Contentful.Data.AssetImageFile.Main
+      Portfolio.Lib.Contentful.Data.AssetImageSys.Main
+      Portfolio.Lib.Contentful.Data.Config.Main
+      Portfolio.Lib.Contentful.Data.Entries.Main
+      Portfolio.Lib.Contentful.Data.GetEntriesParameters.Main
+      Portfolio.Lib.Contentful.Data.GetEntriesResponse.Main
+      Portfolio.Lib.Contentful.Data.Includes.Main
+      Portfolio.Lib.Contentful.Data.Item.Main
+      Portfolio.Lib.Contentful.Data.ItemFieldsImage.Main
+      Portfolio.Lib.Contentful.Data.ItemFieldsImageSys.Main
+      Portfolio.Lib.Contentful.Data.Items.Main
+      Portfolio.Lib.Contentful.Data.ItemSys.Main
+      Portfolio.Lib.Contentful.Data.ItemSysContentType.Main
+      Portfolio.Lib.Contentful.Data.ItemSysContentTypeSys.Main
+      Portfolio.Lib.Contentful.Data.Query.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.ContentNode.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.ContentNodeF.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.DocumentNode.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.DocumentNodeType.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.ParagraphNode.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.ParagraphNodeType.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.TextNode.Main
+      Portfolio.Lib.Contentful.Data.RichText.Data.TextNodeType.Main
+      Portfolio.Lib.Contentful.Queries.Main
+      Portfolio.Lib.Day.Main
+      Portfolio.Lib.Directory.Main
+      Portfolio.Lib.Either.Main
+      Portfolio.Lib.ExitCode.Main
+      Portfolio.Lib.FilePath.Main
+      Portfolio.Lib.Function.Main
+      Portfolio.Lib.Generator.Data.App.Main
+      Portfolio.Lib.Generator.Data.AppContext.Main
+      Portfolio.Lib.Handler.Main
+      Portfolio.Lib.HashMap.Main
+      Portfolio.Lib.Ldd.Data.LddOutput.Main
+      Portfolio.Lib.Ldd.Data.SharedLibrary.Main
+      Portfolio.Lib.List.Main
+      Portfolio.Lib.Localize.Data.Config.Main
+      Portfolio.Lib.Localize.Data.Locale.Main
+      Portfolio.Lib.Localize.Data.Source.Main
+      Portfolio.Lib.Localize.Data.SourceByLocale.Main
+      Portfolio.Lib.Localize.Main
+      Portfolio.Lib.Lucid.Attribute.Main
+      Portfolio.Lib.Lucid.Data.Attribute.Main
+      Portfolio.Lib.Lucid.Data.DataAttributes.Main
+      Portfolio.Lib.Lucid.Htmx.Main
+      Portfolio.Lib.Lucid.Hyperscript.Main
+      Portfolio.Lib.Maybe.Main
+      Portfolio.Lib.Middleware.Data.StaticPolicy.Main
+      Portfolio.Lib.Middleware.Main
+      Portfolio.Lib.Monad.Main
+      Portfolio.Lib.Parse.Main
+      Portfolio.Lib.Parsec.Data.ParseError.Main
+      Portfolio.Lib.Reader.Main
+      Portfolio.Lib.Redis.Data.Config.Main
+      Portfolio.Lib.Redis.Data.Query.Main
+      Portfolio.Lib.Redis.Queries.Main
+      Portfolio.Lib.ToDataAttributes.Main
+      Portfolio.Lib.UTCTime.Main
+      Portfolio.Repositories.Entries.Data.Repository.Main
+      Portfolio.Repositories.Page.Data.Repository.Main
+      Portfolio.Services.Contentful.Data.Service.Main
+  other-modules:
+      Paths_eriko_ikeda_portfolio_fp
+  hs-source-dirs:
+      src
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TupleSections
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -F -pgmF=record-dot-preprocessor
+  build-depends:
+      aeson
+    , aeson-pretty
+    , aeson-qq
+    , amazonka
+    , amazonka-cloudformation
+    , amazonka-cloudfront
+    , amazonka-core
+    , amazonka-s3
+    , amazonka-ssm
+    , amazonka-sts
+    , async
+    , base
+    , butcher
+    , bytestring
+    , case-insensitive
+    , directory
+    , exceptions
+    , extra
+    , filepath
+    , hashable
+    , hedis
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , ini
+    , lens
+    , lucid
+    , mime-types
+    , mtl
+    , network
+    , optparse-applicative
+    , parsec
+    , postgresql-simple
+    , process
+    , record-hasfield
+    , regex-tdfa
+    , retry
+    , rio
+    , scotty
+    , serialise
+    , split
+    , stm
+    , stratosphere
+    , text
+    , time
+    , transformers
+    , typed-process
+    , unordered-containers
+    , utf8-string
+    , wai
+    , wai-cors
+    , wai-middleware-static
+    , yaml
+  default-language: Haskell2010
+
+executable eriko-ikeda-portfolio-fp-cli-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_eriko_ikeda_portfolio_fp
+  hs-source-dirs:
+      cli
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TupleSections
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aeson-pretty
+    , aeson-qq
+    , amazonka
+    , amazonka-cloudformation
+    , amazonka-cloudfront
+    , amazonka-core
+    , amazonka-s3
+    , amazonka-ssm
+    , amazonka-sts
+    , async
+    , base
+    , butcher
+    , bytestring
+    , case-insensitive
+    , directory
+    , eriko-ikeda-portfolio-fp
+    , exceptions
+    , extra
+    , filepath
+    , hashable
+    , hedis
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , ini
+    , lens
+    , lucid
+    , mime-types
+    , mtl
+    , network
+    , optparse-applicative
+    , parsec
+    , postgresql-simple
+    , process
+    , record-hasfield
+    , regex-tdfa
+    , retry
+    , rio
+    , scotty
+    , serialise
+    , split
+    , stm
+    , stratosphere
+    , text
+    , time
+    , transformers
+    , typed-process
+    , unordered-containers
+    , utf8-string
+    , wai
+    , wai-cors
+    , wai-middleware-static
+    , yaml
+  default-language: Haskell2010
+
+executable eriko-ikeda-portfolio-fp-lambda-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_eriko_ikeda_portfolio_fp
+  hs-source-dirs:
+      lambda
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TupleSections
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aeson-pretty
+    , aeson-qq
+    , amazonka
+    , amazonka-cloudformation
+    , amazonka-cloudfront
+    , amazonka-core
+    , amazonka-s3
+    , amazonka-ssm
+    , amazonka-sts
+    , async
+    , base
+    , butcher
+    , bytestring
+    , case-insensitive
+    , directory
+    , eriko-ikeda-portfolio-fp
+    , exceptions
+    , extra
+    , filepath
+    , hashable
+    , hedis
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , ini
+    , lens
+    , lucid
+    , mime-types
+    , mtl
+    , network
+    , optparse-applicative
+    , parsec
+    , postgresql-simple
+    , process
+    , record-hasfield
+    , regex-tdfa
+    , retry
+    , rio
+    , scotty
+    , serialise
+    , split
+    , stm
+    , stratosphere
+    , text
+    , time
+    , transformers
+    , typed-process
+    , unordered-containers
+    , utf8-string
+    , wai
+    , wai-cors
+    , wai-middleware-static
+    , yaml
+  default-language: Haskell2010
+
+test-suite eriko-ikeda-portfolio-fp-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_eriko_ikeda_portfolio_fp
+  hs-source-dirs:
+      test
+  default-extensions:
+      BlockArguments
+      DeriveAnyClass
+      DeriveGeneric
+      LambdaCase
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+      ExtendedDefaultRules
+      ScopedTypeVariables
+      QuasiQuotes
+      TypeApplications
+      TupleSections
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aeson-pretty
+    , aeson-qq
+    , amazonka
+    , amazonka-cloudformation
+    , amazonka-cloudfront
+    , amazonka-core
+    , amazonka-s3
+    , amazonka-ssm
+    , amazonka-sts
+    , async
+    , base
+    , butcher
+    , bytestring
+    , case-insensitive
+    , directory
+    , eriko-ikeda-portfolio-fp
+    , exceptions
+    , extra
+    , filepath
+    , hashable
+    , hedis
+    , hslogger
+    , http-client
+    , http-conduit
+    , http-types
+    , ini
+    , lens
+    , lucid
+    , mime-types
+    , mtl
+    , network
+    , optparse-applicative
+    , parsec
+    , postgresql-simple
+    , process
+    , record-hasfield
+    , regex-tdfa
+    , retry
+    , rio
+    , scotty
+    , serialise
+    , split
+    , stm
+    , stratosphere
+    , text
+    , time
+    , transformers
+    , typed-process
+    , unordered-containers
+    , utf8-string
+    , wai
+    , wai-cors
+    , wai-middleware-static
+    , yaml
+  default-language: Haskell2010
