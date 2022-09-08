@@ -1,0 +1,8 @@
+function main () {
+  export $(cat env/server/.env.development | xargs)
+  make build
+	stack exec eriko-ikeda-portfolio-fp-cli-exe dev-server
+}
+
+main $*
+

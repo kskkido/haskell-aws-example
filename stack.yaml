@@ -1,0 +1,15 @@
+packages:
+- .
+extra-deps:
+- subdirs:
+  - lib/amazonka
+  - lib/amazonka-core
+  - lib/services/amazonka-sts
+  - lib/services/amazonka-s3
+  - lib/services/amazonka-cloudformation
+  - lib/services/amazonka-cloudfront
+  - lib/services/amazonka-ssm
+  github: brendanhay/amazonka
+  commit: 0ccede621e56fb6f240e4850e205cde82d0e4a4b
+- stratosphere-0.60.0
+resolver: lts-19.22
